@@ -1,11 +1,13 @@
 body {
-    background-color: azure;
+    /* background-color: mistyrose; */
+    background-color: aquamarine;
 }
 
 .title {
     font-family: sans-serif;
 }
 
+/* entire cube */
 .input-cube {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -14,7 +16,8 @@ body {
     width:fit-content;
 }
 
-.cube {
+/* each 3x3 box */
+.face {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -22,24 +25,53 @@ body {
     width: 200px;
     height: 200px;
     margin: 0px;
+    border: 4px solid black;
+    background-color: black;
+    justify-content: center;
+    align-content: center;
 }
 
+/* each square in 3x3 box */
 .square {
     width: 60px;
     height: 60px;
     border: 2px solid black;
+    background-color: white;
 }
 
-.spacer-cube {
+/* blank box size of 3x3 box */
+.spacer-face {
     width: 200px;
     height: 200px;
 }
 
+/* functionality elements at the bottom of the page */
+.functionality-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/* container for solve and reset buttons */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.button {
+    margin: 5px;
+}
+#solve-button {
+    background-color: lightgreen;
+}
+#reset-button {
+    background-color: lightpink;
+}
+/* selecting color */
 .color-selector {
     margin-top: 10px;
     display: flex;
 }
-
 .color-box {
     width: 50px;
     height: 50px;
@@ -49,35 +81,31 @@ body {
     justify-content: center;
     align-content: center;
 }
-
 .color-box.selected {
-    outline: 4px solid black;
+    outline: 2px solid black;
+    background-color: purple;
 }
-
+.color-text {
+    display: flex;
+    align-items: center;
+}
 #white-selector {
     background-color: white;
 }
-
 #orange-selector {
     background-color: orange;
 }
-
 #green-selector {
     background-color: green;
 }
-
 #red-selector {
     background-color: red;
 }
-
 #blue-selector {
     background-color: blue;
 }
-
 #yellow-selector {
     background-color: yellow;
 }
 
-.color-text {
-    background-color: transparent;
-}
+
