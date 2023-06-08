@@ -3,8 +3,14 @@ body {
     background-color: aquamarine;
 }
 
+.page-top {
+    display: flex;
+    justify-content: space-between;
+}
+
 .title {
     font-family: sans-serif;
+    font-size: 50px;
 }
 
 /* entire cube */
