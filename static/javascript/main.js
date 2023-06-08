@@ -97,8 +97,8 @@ function getCubeString() {
 }
 
 async function callAPI(cubeString) {
-    // var url = new URL('/api/solve', window.location.origin);
-    var url = new URL('http://localhost:5000/api/solve');
+    var url = new URL('/api/solve', window.location.origin);
+    // var url = new URL('http://localhost:5000/api/solve');
     url.searchParams.append('cubeString', cubeString);
     fetch(url)
         .then(response => response.json())
@@ -134,8 +134,8 @@ async function callAPI(cubeString) {
 
 async function solveCube() {
     try {
-        // var cubeString = getCubeString();
-        var cubeString = 'UBDDUFBRRLBDDLFUUBLUFRFBDFRDDFLRLFBRLUBUBRULLRLUFDRFDB';
+        var cubeString = getCubeString();
+        // var cubeString = 'UBDDUFBRRLBDDLFUUBLUFRFBDFRDDFLRLFBRLUBUBRULLRLUFDRFDB';  // test case
         console.log('calling API...')
         response = await callAPI(cubeString);
         console.log('API called')
