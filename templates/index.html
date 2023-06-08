@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Twisty Puzzle Solver</title>
+<script src="static/javascript/main.js"></script>
+{% endblock %}
+
+
+{% block body %}
+<h1 class="title">Twisty Puzzle Solver</h1>
+<div class="input-cube">
+    <div class="spacer-cube"></div>
+
+    <div class="cube" id="u">
+        <div class="square" id="u1"></div>
+        <div class="square" id="u2"></div>
+        <div class="square" id="u3"></div>
+        <div class="square" id="u4"></div>
+        <div class="square" id="u5"></div>
+        <div class="square" id="u6"></div>
+        <div class="square" id="u7"></div>
+        <div class="square" id="u8"></div>
+        <div class="square" id="u9"></div>
+    </div>
+
+    <div class="spacer-cube"></div>
+
+    <div class="spacer-cube"></div>
+
+    <div class="cube" id="l">
+        <div class="square" id="l1"></div>
+        <div class="square" id="l2"></div>
+        <div class="square" id="l3"></div>
+        <div class="square" id="l4"></div>
+        <div class="square" id="l5"></div>
+        <div class="square" id="l6"></div>
+        <div class="square" id="l7"></div>
+        <div class="square" id="l8"></div>
+        <div class="square" id="l9"></div>
+    </div>
+
+    <div class="cube" id="f">
+        <div class="square" id="f1"></div>
+        <div class="square" id="f2"></div>
+        <div class="square" id="f3"></div>
+        <div class="square" id="f4"></div>
+        <div class="square" id="f5"></div>
+        <div class="square" id="f6"></div>
+        <div class="square" id="f7"></div>
+        <div class="square" id="f8"></div>
+        <div class="square" id="f9"></div>
+    </div>
+
+    <div class="cube" id="r">
+        <div class="square" id="r1"></div>
+        <div class="square" id="r2"></div>
+        <div class="square" id="r3"></div>
+        <div class="square" id="r4"></div>
+        <div class="square" id="r5"></div>
+        <div class="square" id="r6"></div>
+        <div class="square" id="r7"></div>
+        <div class="square" id="r8"></div>
+        <div class="square" id="r9"></div>
+    </div>
+
+    <div class="cube" id="b">
+        <div class="square" id="b1"></div>
+        <div class="square" id="b2"></div>
+        <div class="square" id="b3"></div>
+        <div class="square" id="b4"></div>
+        <div class="square" id="b5"></div>
+        <div class="square" id="b6"></div>
+        <div class="square" id="b7"></div>
+        <div class="square" id="b8"></div>
+        <div class="square" id="b9"></div>
+    </div>
+
+    <div class="spacer-cube"></div>
+
+
+    <div class="cube" id="d">
+        <div class="square" id="d1"></div>
+        <div class="square" id="d2"></div>
+        <div class="square" id="d3"></div>
+        <div class="square" id="d4"></div>
+        <div class="square" id="d5"></div>
+        <div class="square" id="d6"></div>
+        <div class="square" id="d7"></div>
+        <div class="square" id="d8"></div>
+        <div class="square" id="d9"></div>
+    </div>
+
+    <div class="spacer-cube"></div>
+
+    <div class="spacer-cube"></div>
+
+</div>
+
+<div class="color-selector">
+    <div class="color-box" id="white-selector"><p class="color-text">white</p></div>
+    <div class="color-box" id="orange-selector"><p>orange</p></div>
+    <div class="color-box" id="green-selector"><p>green</p></div>
+    <div class="color-box" id="red-selector"><p>red</p></div>
+    <div class="color-box" id="blue-selector"><p>blue</p></div>
+    <div class="color-box" id="yellow-selector"><p>yellow</p></div>
+</div>
+
+
+<script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+{% endblock %}
