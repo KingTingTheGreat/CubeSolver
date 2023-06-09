@@ -1,16 +1,45 @@
 body {
     /* background-color: mistyrose; */
     background-color: aquamarine;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
 }
 
 .page-top {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    min-width: fit-content;
+    height: 90px;
+    /* min-height: auto; */
+    /* box-sizing: border-box; */
+    /* white-space: nowrap; */
+    position: relative;
+}
+
+.third {
+    width: 33.33%;
 }
 
 .title {
     font-family: sans-serif;
-    font-size: 50px;
+    font-size: 60px;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+}
+.notation-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 20%;
 }
 
 /* entire cube */
@@ -114,4 +143,20 @@ body {
     background-color: yellow;
 }
 
-
+.solution {
+    background-color: white;
+}
+#solution-tag {
+    font-size: 30px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: 'SimHei', monospace;
+}
+#solution-text {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: 'SimHei', monospace;
+}

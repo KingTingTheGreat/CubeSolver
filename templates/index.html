@@ -11,13 +11,19 @@
 <!-- <body onload='resetSquares()'>' -->
 <body>
     <div class="page-top">
-        <h1 class="title">Twisty Puzzle Solver</h1>
-        <div class="notation-links">
-            <a href="https://jperm.net/3x3/moves" target="_blank">JPerm Article on Notation</a>
-            <br>
-            <a href="https://ruwix.com/the-rubiks-cube/notation/" target="_blank">Ruwix Article on Notation</a>
+        <div class="third"></div>
+        <div class="third">        
+            <h1 class="title">Twisty Puzzle Solver</h1>
+        </div>
+        <div class="third">
+            <div class="notation-links">
+                <a href="https://jperm.net/3x3/moves" target="_blank">JPerm Article on Notation</a>
+                <a href="https://ruwix.com/the-rubiks-cube/notation/" target="_blank">Ruwix Article on Notation</a>
+            </div>
         </div>
     </div>
+
+
     <div class="input-cube">
         <div class="spacer-face"></div>
 
@@ -106,6 +112,7 @@
 
     </div>
 
+
     <div class="functionality-container">
         <div class="color-selector">
             <div class="color-box" id="white-selector"><p class="color-text">white</p></div>
@@ -120,6 +127,11 @@
             <button class="button" id='solve-button' onclick="solveCube()">Solve</button>
             <button class="button" id='reset-button' onclick="resetSquares()">Reset</button>
             <button class="button" id="clear-button" onclick="clearSquares()">Clear</button>
+        </div>
+
+        <div class="solution"> 
+            <p id="solution-tag">Solution: </p>
+            <p id="solution-text"></p>
         </div>
     </div>
 

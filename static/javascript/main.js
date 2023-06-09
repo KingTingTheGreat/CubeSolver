@@ -1,5 +1,4 @@
 let selectedColor = null;
-console.log('main.js loaded');
 
 const colorBoxes = document.querySelectorAll('.color-box');
 colorBoxes.forEach(colorBox => {
@@ -97,16 +96,17 @@ function getCubeString() {
 }
 
 async function callAPI(cubeString) {
-    var url = new URL('/api/solve', window.location.origin);
-    // var url = new URL('http://localhost:5000/api/solve');
+    // var url = new URL('/api/solve', window.location.origin);
+    var url = new URL('http://localhost:5000/api/solve');
     url.searchParams.append('cubeString', cubeString);
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            console.log(data.solution);
             if (data.solution) {
-                alert(data.solution);
+                console.log(`solution: ${data.solution}`);
+                const sol_text = document.getElementById('solution-text');
+                sol_text.innerHTML = data.solution;
+                return data.solution;
             }
             else {
                 let errorMessage;
@@ -133,13 +133,12 @@ async function callAPI(cubeString) {
 }
 
 async function solveCube() {
-    try {
+    try {    
         var cubeString = getCubeString();
         // var cubeString = 'UBDDUFBRRLBDDLFUUBLUFRFBDFRDDFLRLFBRLUBUBRULLRLUFDRFDB';  // test case
         console.log('calling API...')
-        response = await callAPI(cubeString);
+        await callAPI(cubeString);
         console.log('API called')
-        console.log(`response: ${response}`)
     }
     catch (error) {
         console.error(error);
