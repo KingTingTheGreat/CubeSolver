@@ -72,7 +72,7 @@ function getCubeString() {
             throw new Error('Cube is not fully defined. Please try again.');
         }
         if (colorMap.has(center)) {
-            throw new Error('Each center color must only be used once. Please try again.');
+            throw new Error('Each center color must be used exactly once. Please try again.');
         }
         colorMap.set(center, face);
         faceStates.push(faceArray);
@@ -147,9 +147,9 @@ async function solveCube() {
     try {    
         var cubeString = getCubeString();
         // var cubeString = 'UBDDUFBRRLBDDLFUUBLUFRFBDFRDDFLRLFBRLUBUBRULLRLUFDRFDB';  // test case
-        console.log('calling API...')
+        console.log('calling API...');
         await callAPI(cubeString);
-        console.log('API called')
+        console.log('API called');
     }
     catch (error) {
         console.error(error);
