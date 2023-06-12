@@ -96,41 +96,48 @@ function getCubeString() {
 }
 
 async function callAPI(cubeString) {
+    // backend url with query string
     // var url = new URL('/api/solve', window.location.origin);
     // var url = new URL('http://localhost:5000/api/solve');  # local
     var url = new URL('https://rubiks-cube-solver.vercel.app/solve');  // vercel
     url.searchParams.append('cubeString', cubeString);
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.solution) {
-                console.log(`solution: ${data.solution}`);
-                const sol_text = document.getElementById('solution-text');
-                sol_text.innerHTML = data.solution;
-                return data.solution;
-            }
-            else {
-                let errorMessage;
-                switch (data.error) {
-                    case 'Invalid cube: each colour should appear exactly 9 times':
-                        errorMessage = 'Each color must appear exactly 9 times. Please try again.';
-                    case 'Invalid cube: not all edges exist exactly once':
-                        errorMessage = 'Each edge must exist exactly once. Please try again.';      
-                    case 'Invalid cube: one edge should be flipped':
-                        errorMessage = 'An edge is flipped. Please try again.';
-                    case 'Invalid cube: not all corners exist exactly once':
-                        errorMessage = 'Each corner must exist exactly once. Please try again.';
-                    case 'Invalid cube: one corner should be twisted':
-                        errorMessage = 'A corner is twisted. Please try again.';
-                    case 'Invalid cube: two corners or edges should be exchanged':
-                        errorMessage = 'Two corners or edges are swapped. Please try again.'; 
-                    default:
-                        errorMessage = data.error;
-                }
-                console.error(errorMessage);
-                alert(errorMessage);
-            }
-        })
+    
+    // response from backend
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log('received data');
+
+    // display solution
+    if (data.solution) {
+        console.log(`solution: ${data.solution}`);
+        const sol_text = document.getElementById('solution-text');
+        sol_text.innerHTML = data.solution;
+        return data.solution;
+    }
+    // display error message
+    else {
+        console.log(`error: ${data.error}`);
+        let errorMessage;
+        switch (data.error) {
+            case 'Invalid cube: each colour should appear exactly 9 times':
+                errorMessage = 'Each color must appear exactly 9 times. Please try again.';
+            case 'Invalid cube: not all edges exist exactly once':
+                errorMessage = 'Each edge must exist exactly once. Please try again.';      
+            case 'Invalid cube: one edge should be flipped':
+                errorMessage = 'An edge is flipped. Please try again.';
+            case 'Invalid cube: not all corners exist exactly once':
+                errorMessage = 'Each corner must exist exactly once. Please try again.';
+            case 'Invalid cube: one corner should be twisted':
+                errorMessage = 'A corner is twisted. Please try again.';
+            case 'Invalid cube: two corners or edges should be exchanged':
+                errorMessage = 'Two corners or edges are swapped. Please try again.'; 
+            default:
+                errorMessage = data.error;
+        }
+        console.error(errorMessage);
+        alert(errorMessage);
+        return errorMessage;
+    }
 }
 
 async function solveCube() {
