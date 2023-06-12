@@ -104,8 +104,11 @@ async function callAPI(cubeString) {
     
     // response from backend
     const response = await fetch(url);
+    console.log('received response');
+    console.log(response);
     const data = await response.json();
     console.log('received data');
+    console.log(data);
 
     // display solution
     if (data.solution) {
