@@ -97,7 +97,8 @@ function getCubeString() {
 
 async function callAPI(cubeString) {
     // var url = new URL('/api/solve', window.location.origin);
-    var url = new URL('http://localhost:5000/api/solve');
+    // var url = new URL('http://localhost:5000/api/solve');  # local
+    var url = new URL('https://rubiks-cube-solver.vercel.app/solve');  // vercel
     url.searchParams.append('cubeString', cubeString);
     fetch(url)
         .then(response => response.json())
