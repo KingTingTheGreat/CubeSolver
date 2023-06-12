@@ -19,6 +19,7 @@ def solve(ULFRBD=True, URFDLB=False):
         if ULFRBD:
             cubestring = ULFRBD_to_URFDLB(cubestring)
         solution = getSolution(cubestring)
+        print(f'Solution: {solution}')
         response['solution'] = solution
     except Exception as e:
         print(f'Exception: {e}')
