@@ -19,6 +19,9 @@ def solve(ULFRBD=True, URFDLB=False):
         if ULFRBD:
             cubestring = ULFRBD_to_URFDLB(cubestring)
         solution = getSolution(cubestring)
+        # cube is already solved
+        if solution == '':
+            solution = ' '
         print(f'Solution: {solution}')
         response['solution'] = solution
     except Exception as e:

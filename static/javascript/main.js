@@ -98,8 +98,8 @@ function getCubeString() {
 async function callAPI(cubeString) {
     // backend url with query string
     // var url = new URL('/api/solve', window.location.origin);
-    // var url = new URL('http://localhost:5000/api/solve');  # local
-    var url = new URL('https://rubiks-cube-solver.vercel.app/solve');  // vercel
+    var url = new URL('http://localhost:5000/api/solve');  // local
+    // var url = new URL('https://rubiks-cube-solver.vercel.app/solve');  // vercel
     url.searchParams.append('cubeString', cubeString);
     
     // response from backend
@@ -115,6 +115,9 @@ async function callAPI(cubeString) {
         console.log(`solution: ${data.solution}`);
         const sol_text = document.getElementById('solution-text');
         sol_text.innerHTML = data.solution;
+        if (data.solution == ' ') {
+            alert('Cube is already solved!');
+        }
         return data.solution;
     }
     // display error message
