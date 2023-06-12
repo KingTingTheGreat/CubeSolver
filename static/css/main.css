@@ -128,19 +128,24 @@ body {
     background-color: white;
 }
 #orange-selector {
-    background-color: orange;
+    /* background-color: orange; */
+    background-color: #FF8400;
 }
 #green-selector {
-    background-color: green;
+    /* background-color: green; */
+    background-color: #3DB821;
 }
 #red-selector {
-    background-color: red;
+    /* background-color: red; */
+    background-color: #FF0000;
 }
 #blue-selector {
-    background-color: blue;
+    /* background-color: blue; */
+    background-color: #0D41FF;
 }
 #yellow-selector {
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-color: #FCFC00;
 }
 
 .solution {
