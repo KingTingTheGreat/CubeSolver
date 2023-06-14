@@ -1,5 +1,8 @@
 let selectedColor = null;
 
+/*
+* event listeners for choosing the current color
+*/
 const colorBoxes = document.querySelectorAll('.color-box');
 colorBoxes.forEach(colorBox => {
     colorBox.addEventListener('click', function() {
@@ -22,6 +25,9 @@ colorBoxes.forEach(colorBox => {
     });
 });
 
+/*
+* event listeners for coloring the squares
+*/
 const squares = document.querySelectorAll('.square');
 squares.forEach(square => {
     square.addEventListener('click', function() {
@@ -32,6 +38,9 @@ squares.forEach(square => {
     });
 });
 
+/*
+* sets all squares to a given color
+*/
 function setSquares(color) {
     console.log('set squares');
     squares.forEach(square => {
@@ -39,16 +48,26 @@ function setSquares(color) {
     });
 }
 
+/*
+* sets all squares to white
+*/
 function resetSquares() {
     console.log('reset squares');
     setSquares('white');
 }
 
+/*
+* sets all squares to darkgray, which appears as no color
+*/
 function clearSquares() {
     console.log('clear squares');
     setSquares('darkgray');
 }
 
+/*
+* returns an array of the colors of the squares in a given face
+* the array is ordered from top left to bottom right
+*/
 function getFace(face) {
     let faceArray = [];
     const squares = document.getElementById(face).children
@@ -59,6 +78,12 @@ function getFace(face) {
     return faceArray;
 }
 
+/*
+* returns a string representing the current state of the cube
+* the string is ordered as follows:
+* U, L, F, R, B, D
+* each face goes from top left to bottom right
+*/
 function getCubeString() {
     const faces = ['U', 'L', 'F', 'R', 'B', 'D'];
     const bgColor = getComputedStyle(document.body).backgroundColor;
@@ -95,6 +120,10 @@ function getCubeString() {
     return cubeString;
 }
 
+/*
+* calls the backend API to solve the cube
+* displays the solution or an error message
+*/
 async function callAPI(cubeString) {
     // backend url with query string
     // var url = new URL('/api/solve', window.location.origin);
@@ -146,6 +175,9 @@ async function callAPI(cubeString) {
     }
 }
 
+/*
+* solves the cube
+*/
 async function solveCube() {
     try {    
         const sol_text = document.getElementById('solution-text');
