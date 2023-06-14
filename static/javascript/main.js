@@ -148,6 +148,8 @@ async function callAPI(cubeString) {
 
 async function solveCube() {
     try {    
+        const sol_text = document.getElementById('solution-text');
+        sol_text.innerHTML = 'Solving...';
         var cubeString = getCubeString();
         // var cubeString = 'UBDDUFBRRLBDDLFUUBLUFRFBDFRDDFLRLFBRLUBUBRULLRLUFDRFDB';  // test case
         console.log('calling API...');
