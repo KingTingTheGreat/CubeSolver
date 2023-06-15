@@ -1,3 +1,4 @@
+import random
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from twophase import solve as getSolution
@@ -27,6 +28,27 @@ def solve(ULFRBD=True, URFDLB=False):
     except Exception as e:
         print(f'Exception: {e}')
         response['error'] = str(e)
+    return jsonify(response)
+
+@app.route('/api/scramble', methods=['GET'])
+def scramble(length=20):
+    faces = ['U', 'L', 'F', 'R', 'B', 'D']
+    directions = ['', "'", '2']
+    forbidden = {face:face for face in faces}  # don't move the same face two turns in a row
+    forbidden['U'] = 'D'
+    forbidden['D'] = 'U'
+    forbidden['L'] = 'R'
+    forbidden['R'] = 'L'
+    forbidden['F'] = 'B'
+    forbidden['B'] = 'F'
+    response = {}
+    scramble = [random.choice(faces)+random.choice(directions)]
+    for _ in range(length-1):
+        face = random.choice(faces)
+        while face == forbidden[scramble[-1][0]]:
+            face = random.choice(faces)
+        scramble.append(face+random.choice(directions))
+    response['scramble'] = ' '.join(scramble)
     return jsonify(response)
 
 if __name__ == '__main__':
