@@ -35,18 +35,19 @@ def scramble(length=20):
     print('Scrambling...')
     faces = ['U', 'L', 'F', 'R', 'B', 'D']
     directions = ['', "'", '2']
-    forbidden = {face:face for face in faces}  # don't move the same face two turns in a row
-    forbidden['U'] = 'D'
-    forbidden['D'] = 'U'
-    forbidden['L'] = 'R'
-    forbidden['R'] = 'L'
-    forbidden['F'] = 'B'
-    forbidden['B'] = 'F'
+    forbidden = {\
+        'U': ['U', 'D'],\
+        'L': ['L', 'R'],\
+        'F': ['F', 'B'],\
+        'R': ['R', 'L'],\
+        'B': ['B', 'F'],\
+        'D': ['D', 'U']\
+        }  # don't move the same face two turns in a row
     response = {}
     scramble = [random.choice(faces)+random.choice(directions)]
     for _ in range(length-1):
         face = random.choice(faces)
-        while face[0] == forbidden[scramble[-1][0]]:
+        while face[0] in forbidden[scramble[-1][0]]:
             face = random.choice(faces)
         scramble.append(face+random.choice(directions))
     response['scramble'] = ' '.join(scramble)
